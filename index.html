@@ -2,167 +2,186 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Spader Gang | Tuyển Member</title>
+<title>Spader Gang | Elite Recruitment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-  margin:0;height:100vh;
   font-family:Arial,Helvetica,sans-serif;
-  background:url("https://images.unsplash.com/photo-1604079628040-94301bb21b91") center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;overflow:hidden;
+  height:100vh;
+  background:
+    radial-gradient(circle at top,#ff003355,transparent 40%),
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+    url("https://images.unsplash.com/photo-1511512578047-dfb367046420");
+  background-size:cover;
+  color:#fff;
+  overflow:hidden;
 }
-body::before{
-  content:"";position:fixed;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.9));
+
+/* INTRO GLITCH */
+#intro{
+  position:fixed;inset:0;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:3em;
+  color:#ff0033;
+  text-shadow:0 0 30px red;
+  animation:glitch 2.8s forwards;
+  z-index:10;
 }
-.container{
-  position:relative;
-  width:90%;max-width:420px;
+@keyframes glitch{
+  0%{opacity:1;transform:scale(1)}
+  20%{transform:skewX(10deg)}
+  40%{transform:skewX(-10deg)}
+  70%{opacity:1}
+  100%{opacity:0;visibility:hidden}
+}
+
+/* CARD */
+.main{
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.card{
+  width:340px;
+  padding:28px;
+  text-align:center;
+  border-radius:18px;
   backdrop-filter:blur(14px);
-  background:rgba(20,20,30,.65);
-  border-radius:16px;
-  padding:24px;
-  box-shadow:0 0 40px rgba(255,0,80,.4);
-  animation:intro .8s ease;
+  background:rgba(0,0,0,.55);
+  box-shadow:0 0 40px rgba(255,0,50,.7);
+  animation:fadeUp 1.2s ease;
 }
-@keyframes intro{
-  from{transform:scale(.9);opacity:0}
-  to{transform:scale(1);opacity:1}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
 }
+
 h1{
-  text-align:center;
-  color:#ff004c;
-  text-shadow:0 0 15px #ff004c;
-  margin-bottom:10px;
+  color:#ff0033;
+  text-shadow:0 0 15px red;
 }
-.note{
-  font-size:13px;
-  color:#ffb3c7;
-  text-align:center;
-  margin-bottom:14px;
+p{opacity:.85;margin-bottom:15px}
+
+/* DISCORD BUTTON */
+.join{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:12px;
+  background:#5865F2;
+  color:#fff;
+  text-decoration:none;
+  border-radius:12px;
+  margin:15px 0;
+  box-shadow:0 0 25px #5865F2;
+  animation:pulse 1.4s infinite;
 }
-input,textarea{
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+  100%{transform:scale(1)}
+}
+
+/* FORM */
+input,button{
   width:100%;
-  padding:10px;
+  padding:12px;
   margin:6px 0;
   border:none;
   border-radius:8px;
-  background:#111;
-  color:#fff;
 }
+input{background:#111;color:#fff}
 button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border:none;
-  border-radius:10px;
-  font-size:15px;
+  background:#ff0033;
+  color:#fff;
+  font-weight:bold;
   cursor:pointer;
-  transition:.2s;
 }
-.join{
-  background:#5865F2;
-  box-shadow:0 0 20px #5865F2;
-}
-.join:hover{transform:scale(1.05)}
-.send{
-  background:#ff004c;
-  box-shadow:0 0 25px #ff004c;
-}
-.send:disabled{
-  opacity:.4;
-  cursor:not-allowed;
-}
-footer{
-  text-align:center;
-  font-size:12px;
-  margin-top:12px;
+button:disabled{opacity:.4}
+
+/* NOTE */
+.note{
+  font-size:13px;
   opacity:.8;
+  margin-top:10px;
+}
+
+/* FLOATING DISCORD */
+.floating{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  background:#5865F2;
+  width:56px;height:56px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:24px;
+  text-decoration:none;
+  color:#fff;
+  box-shadow:0 0 30px #5865F2;
 }
 </style>
 </head>
 
 <body>
+
+<!-- INTRO -->
+<div id="intro">⚡ SPADER GANG ⚡</div>
+
+<!-- MUSIC -->
 <audio id="bgm" loop>
-  <source src="https://files.catbox.moe/4y8w1a.mp3" type="audio/mpeg">
+  <source src="yeu.mp3" type="audio/mpeg">
 </audio>
 
-<div class="container">
-  <h1>🕷 SPADER GANG</h1>
-  <div class="note">
-    ⚠️ Lưu ý: Sau khi điền xong form,<br>
-    **bắt buộc Join Discord để được duyệt vào team**
+<div class="main">
+  <div class="card">
+    <h1>Spader Gang</h1>
+    <p>Tuyển thành viên Elite</p>
+
+    <a class="join" id="joinBtn" href="https://discord.gg/gbNjaUhvWY" target="_blank">
+      🚀 Join Discord
+    </a>
+
+    <form id="form">
+      <input id="name" placeholder="Tên ingame" required>
+      <input id="age" placeholder="Tuổi" required>
+      <input id="exp" placeholder="Kinh nghiệm" required>
+      <button id="submitBtn" disabled>Gửi đơn</button>
+    </form>
+
+    <div class="note">
+      ⚠ Ghi xong ➜ <b>Join Discord</b> để chính thức vào team
+    </div>
   </div>
-
-  <input id="name" placeholder="Tên ingame">
-  <input id="age" placeholder="Tuổi">
-  <textarea id="skill" placeholder="Kỹ năng / Vị trí"></textarea>
-
-  <button class="join" onclick="joinDiscord()">🔗 Join Discord</button>
-  <button class="send" id="sendBtn" disabled onclick="sendForm()">🚀 Gửi đơn</button>
-
-  <footer>Spader Gang © Gaming Team</footer>
 </div>
 
+<a class="floating" href="https://discord.gg/gbNjaUhvWY" target="_blank">💬</a>
+
 <script>
-const webhook = "https://discord.com/api/webhooks/1459012454053969960/9u_opJIKM33ooLt4qzE01xmpucd70mQU3lmhLtby70km3wVpvfw7UZlIGrOVJtdDaQPm";
-let joined = false;
-
-function joinDiscord(){
-  document.getElementById("bgm").volume = 0;
-  document.getElementById("bgm").play();
-  let v = 0;
-  let fade = setInterval(()=>{
-    if(v<0.5){v+=0.05;document.getElementById("bgm").volume=v}
-    else clearInterval(fade);
+/* MUSIC FADE */
+const bgm=document.getElementById("bgm");
+document.body.addEventListener("click",()=>{
+  bgm.volume=0;
+  bgm.play();
+  let v=0;
+  const fade=setInterval(()=>{
+    v+=0.02; bgm.volume=Math.min(v,0.4);
+    if(v>=0.4) clearInterval(fade);
   },100);
-  window.open("https://discord.gg/YOUR_INVITE","_blank");
-  joined = true;
-  document.getElementById("sendBtn").disabled = false;
-}
+},{once:true});
 
-function sendForm(){
-  if(!joined) return;
-  const data = {
-    embeds:[{
-      title:"🕷 ĐƠN TUYỂN MEMBER",
-      color:16711772,
-      fields:[
-        {name:"Tên",value:document.getElementById("name").value || "?" },
-        {name:"Tuổi",value:document.getElementById("age").value || "?" },
-        {name:"Kỹ năng",value:document.getElementById("skill").value || "?" }
-      ],
-      footer:{text:"Spader Gang Recruitment"}
-    }]
-  };
-  fetch(webhook,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(data)
-  }).then(()=>{
-    alert("✅ Đã gửi! Vui lòng ở lại Discord để được duyệt.");
-  });
-}  <!-- NỘI DUNG WEB Ở TRÊN -->
+/* JOIN CHECK */
+let joined=false;
+document.getElementById("joinBtn").onclick=()=>{
+  joined=tr
 
-  <audio id="bgm" loop>
-    <source src="yeu.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    document.addEventListener("click", () => {
-      const bgm = document.getElementById("bgm");
-      bgm.volume = 0.4;
-      bgm.play().catch(()=>{});
-    }, { once: true });
-  </script>
-
-</body>
-</html>
-
-</script>
-</body>
-</html>
 
